@@ -1,4 +1,7 @@
-<?php include "./db/db.php" ?>
+<?php 
+session_start();
+include "./db/db.php" ?>
+
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,21 +49,20 @@
 
                     while($row = $result -> fetch_assoc()){
 
+                        $_SESSION['flightno'] = $row["FlightNo"];
+                        $_SESSION['class'] = $class;
+                        $_SESSION['passengers'] = $passengers;
+                        $_SESSION['price'] = $row["Price"];
+
 ?>          <tr>
                 <form action="./myflight.php" method="post">
-
-                    <input name="FlightNo" type="hidden" value="<?php echo $row["FlightNo"] ?>" >
-                    <input name="class" type="hidden" value="<?php echo $class ?>" >
-                    <input name="passengers" type="hidden" value="<?php echo $passengers ?>">
-                        
                     
                         <td><?php echo $row["DepartureAirport"] ?></td>
                         <td><?php echo $row["ArrivalAirport"] ?></td>
                         <td><?php echo $row["Price"] ?></td>
                         <td><?php echo $row["Price"] ?></td>
                         <button type="submit" name="submit">get this</button>
-                        
-                            
+                                   
                 </form>
             </tr>
             

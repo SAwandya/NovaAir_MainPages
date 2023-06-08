@@ -18,7 +18,7 @@
 
         if($row = $result->fetch_assoc()){
 
-            $_SESSION['ID'] = 'logged';
+            $_SESSION['ID'] = $row['UserID'];
             header("Location: ./index.php");
         }else{
 

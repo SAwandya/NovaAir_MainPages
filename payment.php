@@ -1,3 +1,30 @@
+<?php 
+
+session_start();
+
+include "./db/db.php";
+
+$classNo = $multiplier = "";
+
+$class = $_SESSION['class'];
+$price = $_SESSION['price'];
+
+$qur1 = "SELECT * FROM class WHERE ClassType = '$class';";
+
+$result = $conn -> query($qur1);
+
+while($row = $result->fetch_assoc()){
+    $classNo = $row['ClassNo'];
+    $multiplier = $row['Multiplier'];
+}
+
+$totalPrice = $price * $multiplier;
+
+$_SESSION['totalPrice'] = $totalPrice;
+$_SESSION['classNo'] = $classNo;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,17 +59,9 @@
             style="margin-top: 20px; margin-left: 10px"
           />
         </div>
-        <div class="topnav">
-          <a href="index.html">Home</a>
-          <a href="book.html">Book</a>
-          <a href="manage.html">Manage</a>
-          <a href="flight.html">Where we fly</a>
-          <a href="destinations.html">Best Destinations</a>
-          <a href="contact.html">Contact Us</a>
-          <a href="newlogin.html" style="margin-left: 75px; margin-right: 150px"
-            >Login | Sign up</a
-          >
-        </div>
+        <!------------------ Navigation bar --------------------->
+
+      <?php include "./components/navbar.php" ?>
       </nav>
     <div class="main-container">
         <h1>Payments</h1>
@@ -51,7 +70,7 @@
                 <h4>Tokoyo, Japan</h4>
                 <form action="#">
                     <h3>To pay</h3>
-                    <h1>LKR 23780</h1>
+                    <h1>LKR <?php echo $totalPrice ?></h1>
                 </form>
             </div>
             <div class="overlay-container">
@@ -60,14 +79,22 @@
 
                         <form action="process_payment.php" method="post">
                             <label for="card_number">Card Number:</label>
-                            <input type="text" id="card_number" name="card_number" required>
-                            <label for="card_name">Cardholder Name:</label>
-                            <input type="text" id="card_name" name="card_name" required>
+                            <input type="number" id="card_number" name="card_number" required>
+
+                            <label for="method">Enter card type :</label>
+                            <select name="method" id="method">
+                                <option value="Visa">Visa Card</option>
+                                <option value="Master">Master Card</option>
+                            </select>
+
                             <label for="expiry_date">Expiry Date:</label>
-                            <input type="text" id="expiry_date" name="expiry_date" required>
+                            <input type="Date" id="expiry_date" name="expiry_date" required>
+
                             <label for="cvv">CVV:</label>
-                            <input type="text" id="cvv" name="cvv" required><br>
-                            <input type="submit" value="Submit Payment">
+                            <input type="number" id="cvv" name="cvv" required><br>
+
+                            <input name="submit" type="submit" value="Submit Payment">
+
                           </form>
                         <!-- <h3>Pay with credit card</h3>
 

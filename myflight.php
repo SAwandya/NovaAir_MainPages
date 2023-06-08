@@ -54,12 +54,12 @@ if (!isset($_SESSION['ID'])) {
                 <h3>My Flight</h3>
 
             <?php 
-
+                
                 if(isset($_POST["submit"])){
 
-                    $FlightNo = $_POST["FlightNo"];
-                    $class = $_POST["class"];
-                    $passengers = $_POST["passengers"];
+                    $FlightNo = $_SESSION['flightno'];
+                    $class = $_SESSION['class'];
+                    $passengers = $_SESSION['passengers'];
 
                     $qur = "SELECT r.DepartureAirport, r.ArrivalAirport, p.Price, p.FlightNo, p.DepartureDate, p.DepartureTime
                             FROM flight_routes r, passenger_flight p
@@ -71,11 +71,9 @@ if (!isset($_SESSION['ID'])) {
 
                         while($row = $result -> fetch_assoc()){
 
-
-                   
                 ?>
 
-                <form action="" method="post">
+                
                 <table>
                     <tr>
                         <td>Flight ID</td>
@@ -107,10 +105,10 @@ if (!isset($_SESSION['ID'])) {
                         <td><?php echo $class; ?></td>
                     </tr>                
                 </table>
-                </form>
-
+               
                 <?php     }
                     } } ?>
+                
 
                 <!-- <ul>
                     <li>Flight ID: AK1037</li>
@@ -121,11 +119,14 @@ if (!isset($_SESSION['ID'])) {
                     <li>Passengers: 2</li>
                     <li>Class: Economy</li>
                 </ul> -->
+                
                 <div class="both-buttons">
                     <button class="flight-buttons">Edit Booking</button>
                     <button class="flight-buttons">Cancel Booking</button>
-                    <button type="submit" name="confirm">Confirm</button>
+                    <a href="./payment.php"><button type="submit" name="confirm">Confirm</button></a>
                 </div>
+                </form>
+                
 
             </div>
         </div>
