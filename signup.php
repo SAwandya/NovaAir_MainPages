@@ -125,6 +125,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if($result === TRUE){
                 $success = "You are successfully registered..";
+
+                header("Location: ../../newlogin.php");
             }else{
                 $success = "Registration failed.." . $conn->error;
             }

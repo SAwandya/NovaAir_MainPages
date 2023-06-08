@@ -1,4 +1,33 @@
 <?php include "./db/db.php" ?>
+<?php 
+
+    session_start();
+
+    $error = "";
+
+    if(isset($_POST["submit"])){
+
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+
+        $qur = "SELECT s.UserPassword, e.Email, e.UserID
+                FROM users s, user_email e
+                WHERE s.UserID = e.UserID AND s.UserPassword = '$password' AND e.Email = '$email';";
+
+        $result = $conn->query($qur);
+
+        if($row = $result->fetch_assoc()){
+
+            $_SESSION['ID'] = $row['UserID'];
+            header("Location: ./index.php");
+        }else{
+
+            $error = "Email or password incorrect";
+        }
+    }
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +78,8 @@
     <div class="main-container">
         <div class="container" id="container">
             <div class="form-container sign-in-container">
-                <form action="#">
+
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" >
                     <h1>Sign in</h1>
                     <div class="social-container">
                         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -57,10 +87,12 @@
                         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                     <span>or use your account</span>
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
+
+                    <input name="email" type="email" placeholder="Email" />
+                    <input name="password" type="password" placeholder="Password" />
+
                     <a href="adminlogin.html">Admin Login</a>
-                    <button type="submit" class="sign-in_btn">
+                    <button name="submit" type="submit" class="sign-in_btn">
                         <span>Sign In</span>
                     </button>
                 </form>
@@ -69,6 +101,7 @@
                 <div class="overlay">
                     <div class="overlay-panel overlay-right">
                         <h1>Don't have an account?</h1>
+                        <h1><span>* <?php echo $error;?></span></h1>
                         <button type="submit" class="sign-up sign-in_btn">
                             <a href="./signup.php">Sign up</a>
                         </button>
@@ -80,3 +113,5 @@
 </body>
 
 </html>
+
+<?php $conn -> close() ?>
