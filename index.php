@@ -30,15 +30,11 @@
     <div class="top-logo">
       <img src="images/logo_with_txt.png" height="66px" style="margin-top: 20px; margin-left: 10px" />
     </div>
-    <div class="topnav">
-      <a href="./index.php">Home</a>
-      <a href="./book.php">Book</a>
-      <a href="./manage.php">Manage</a>
-      <a href="./wherewefly.php">Where we fly</a>
-      <a href="./destinations.php">Best Destinations</a>
-      <a href="./contact.php">Contact Us</a>
-      <a href="./newlogin.php" style="margin-left: 75px; margin-right: 150px">Login | Sign up</a>
-    </div>
+<!------------------ Navigation bar --------------------->
+
+<?php include "./components/navbar.php" ?>
+
+    
   </nav>
   <div class="main-container">
     <section class="booking-box" id="booking-box">

@@ -24,17 +24,10 @@
           style="margin-top: 20px; margin-left: 10px"
         />
       </div>
-      <div class="topnav">
-        <a href="index.html">Home</a>
-        <a href="book.html">Book</a>
-        <a href="manage.html">Manage</a>
-        <a href="flight.html">Where we fly</a>
-        <a href="destinations.html">Best Destinations</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="newlogin.html" style="margin-left: 75px; margin-right: 150px"
-          >Login | Sign up</a
-        >
-      </div>
+      <!------------------ Navigation bar --------------------->
+
+      <?php include "./components/navbar.php" ?>
+
     </nav>
 
     <form class="form_container">
