@@ -1,3 +1,14 @@
+<?php 
+    session_start();
+
+    // Check if the user is not logged in
+if (!isset($_SESSION['ID'])) {
+    // Redirect the user to the login page or any other page for authentication
+    header("Location: ./newlogin.php");
+    exit();
+}
+?>
+
 <?php include "./db/db.php" ?>
 
 <!DOCTYPE html>

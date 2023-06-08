@@ -117,16 +117,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email = $_POST["email"];
             $phone = $_POST["phone"];
             
-            $qur = "INSERT INTO users VALUES (23, '$firstname', '$middlename', '$lastname', '$address', '$dateofbirth', '$age', '$password');".
-                   "INSERT INTO user_email VALUES (23, '$email');".
-                   "INSERT INTO user_phone VALUES (23, '$phone');";
+            $qur = "INSERT INTO users VALUES (6, '$firstname', '$middlename', '$lastname', '$address', '$dateofbirth', '$age', '$password');".
+                   "INSERT INTO user_email VALUES (6, '$email');".
+                   "INSERT INTO user_phone VALUES (6, '$phone');";
 
             $result = $conn -> multi_query($qur);
 
             if($result === TRUE){
                 $success = "You are successfully registered..";
 
-                header("Location: ../../newlogin.php");
+                header("Location: ./newlogin.php");
             }else{
                 $success = "Registration failed.." . $conn->error;
             }
