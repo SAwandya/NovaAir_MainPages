@@ -36,7 +36,7 @@
                 $passengers = $_POST["passengers"];
                 $class = $_POST["class"];
 
-                $qur = "SELECT r.DepartureAirport, r.ArrivalAirport, p.Price
+                $qur = "SELECT r.DepartureAirport, r.ArrivalAirport, p.Price, p.FlightNo
                         FROM flight_routes r, passenger_flight p
                         WHERE r.RouteNo = p.RouteNo AND r.DepartureAirport = '{$from_airport}' AND r.ArrivalAirport = '{$to_airport}' AND p.DepartureDate = '{$d_date}' AND p.ArrivalDate = '{$r_date}';";
 
@@ -47,10 +47,21 @@
                     while($row = $result -> fetch_assoc()){
 
 ?>          <tr>
-                <td><?php echo $row["DepartureAirport"] ?></td>
-                <td><?php echo $row["ArrivalAirport"] ?></td>
-                <td><?php echo $row["Price"] ?></td>
-                <td><?php echo $row["Price"] ?></td>
+                <form action="./myflight.php" method="post">
+
+                    <input name="FlightNo" type="hidden" value="<?php echo $row["FlightNo"] ?>" >
+                    <input name="class" type="hidden" value="<?php echo $class ?>" >
+                    <input name="passengers" type="hidden" value="<?php echo $passengers ?>">
+                        
+                    
+                        <td><?php echo $row["DepartureAirport"] ?></td>
+                        <td><?php echo $row["ArrivalAirport"] ?></td>
+                        <td><?php echo $row["Price"] ?></td>
+                        <td><?php echo $row["Price"] ?></td>
+                        <button type="submit" name="submit">get this</button>
+                        
+                            
+                </form>
             </tr>
             
             <?php 
@@ -59,7 +70,7 @@
                     }
                 }
 
-            echo "<h1> No Result </h1>";
+            else echo "<h1> No Result </h1>";
 
             }
 

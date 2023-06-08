@@ -1,3 +1,5 @@
+<?php include "./db/db.php" ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,38 +47,64 @@
             <div class="myflight-description">
                 <h3>My Flight</h3>
 
+            <?php 
+
+                if(isset($_POST["submit"])){
+
+                    $FlightNo = $_POST["FlightNo"];
+                    $class = $_POST["class"];
+                    $passengers = $_POST["passengers"];
+
+                    $qur = "SELECT r.DepartureAirport, r.ArrivalAirport, p.Price, p.FlightNo, p.DepartureDate, p.DepartureTime
+                            FROM flight_routes r, passenger_flight p
+                            WHERE r.RouteNo = p.RouteNo AND p.FlightNo = '{$FlightNo}' ;";
+                    
+                    $result = $conn->query($qur);
+
+                    if($result -> num_rows > 0){
+
+                        while($row = $result -> fetch_assoc()){
+
+
+                   
+                ?>
+
+                <form action="" method="post">
                 <table>
                     <tr>
                         <td>Flight ID</td>
-                        <td>AK1037</td>
+                        <td><?php echo $FlightNo; ?></td>
                     </tr>
                     <tr>
                         <td>From</td>
-                        <td>Colombo Bandaranayake International Airport</td>
+                        <td><?php echo $row["DepartureAirport"]; ?></td>
                     </tr>
 
                     <tr>
                         <td>To</td>
-                        <td>Dubai International Airport</td>
+                        <td><?php echo $row["ArrivalAirport"]; ?></td>
                     </tr>
                     <tr>
                         <td>Date</td>
-                        <td>01/07/2023</td>
+                        <td><?php echo $row["DepartureDate"]; ?></td>
                     </tr>
                     <tr>
                         <td>Time</td>
-                        <td>00:30</td>
+                        <td><?php echo $row["DepartureTime"]; ?></td>
                     </tr>       
                     <tr>
                         <td>Passengers</td>
-                        <td>2</td>
+                        <td><?php echo $passengers; ?></td>
                     </tr>   
                     <tr>
                         <td>Class</td>
-                        <td>Economy</td>
+                        <td><?php echo $class; ?></td>
                     </tr>                
                 </table>
+                </form>
 
+                <?php     }
+                    } } ?>
 
                 <!-- <ul>
                     <li>Flight ID: AK1037</li>
@@ -90,6 +118,7 @@
                 <div class="both-buttons">
                     <button class="flight-buttons">Edit Booking</button>
                     <button class="flight-buttons">Cancel Booking</button>
+                    <button type="submit" name="confirm">Confirm</button>
                 </div>
 
             </div>
@@ -151,3 +180,5 @@
 </body>
 
 </html>
+
+<?php $conn -> close() ?>

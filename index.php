@@ -141,8 +141,21 @@
             <div class="input-boxes class-input">
               <label>Class</label>
               <select name="class" class="drop-down">
-                <option>Economy</option>
-                <option>Business</option>
+
+              <?php 
+
+                $qur = "SELECT * FROM class;";
+
+                $result = $conn -> query($qur);
+
+                if($result -> num_rows > 0){
+
+                    while($row = $result -> fetch_assoc()){
+
+                      echo "<option>{$row['ClassType']}</option>";
+
+                    }}
+                    ?>
               </select>
             </div>
           </div>
