@@ -1,4 +1,4 @@
-<?php include "./db/db" ?>
+<?php include "./db/db.php" ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +70,7 @@
                     <div class="overlay-panel overlay-right">
                         <h1>Don't have an account?</h1>
                         <button type="submit" class="sign-up sign-in_btn">
-                            Sign up
+                            <a href="./signup.php">Sign up</a>
                         </button>
                     </div>
                 </div>
