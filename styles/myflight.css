@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background-image: url("../images/managebg.jpg");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: 55px;
+}
+
+
+/* Navigation */
+
+nav {
+    background-color: #fff;
+    height: 80px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.topnav {
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.topnav a {
+    color: #000;
+    text-align: center;
+    padding: 14px 18px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    color: #7048e8;
+}
+
+.top-logo {
+    position: absolute;
+    top: -13px;
+    left: 168px;
+}
+
+.main-container {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 200px;
+}
+
+.main-container h3{
+    margin-left: 50px;
+    margin-top: 20px;
+    /* margin-top: 200px; */
+    font-size: 2rem;
+}
+
+.myflight-box {
+    background-color: #fff;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.myflight-description {
+    background-color: #fff;
+    width: 800px;
+    height: 400px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    margin-top: 25px;
+    margin-bottom: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Buttons  */
+
+.flight-buttons {
+    border: none;
+    color: #fff;
+    background-color: #7048e8;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.flight-buttons:hover {
+    color: #7048e8;
+    background-color: #fff;
+    border: 1px solid #7048e8;
+}
+
+.edit-buttons {
+    position: absolute;
+    bottom: -65px;
+    margin-right: 0px;
+}
+
+.cancel-buttons {
+    position: absolute;
+    bottom: -60px;
+    right: 0px;
+}
+
+.both-buttons{
+    margin-left: 450px;
+}
+
+/* Table */
+
+.myflight-description table {
+    border-collapse: separate;
+    border-spacing: 50px 0;
+    margin-top: 25px;
+  }
+
+.myflight-description td{
+    padding: 8px 0
+}
+
+
+/* footer */
+
+.social-icon {
+    margin: 20px 10px;
+}
+
+
+.footer-distributed {
+    background: #7048e8;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 55px 50px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left {
+    width: 40%;
+}
+
+.footer-distributed .footer-left h3 {
+    color: #fff;
+    font-size: 24px;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links {
+    color: #ffffff;
+    margin: 15px 0 12px;
+    padding: 0;
+}
+
+.footer-distributed .footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    font-weight: 400;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center {
+    width: 35%;
+}
+
+.footer-distributed .footer-center i {
+    background-color: #33383b;
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+
+.footer-distributed .footer-center p {
+    display: inline-block;
+    color: #ffffff;
+    font-weight: 400;
+    vertical-align: middle;
+    margin: 10px;
+}
+
+.footer-distributed .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.footer-distributed .footer-center p a {
+    color: #F8F8F8;
+    text-decoration: none;
+}
+
+.footer-distributed .footer-links a:before {
+    content: "|";
+    font-weight: 300;
+    font-size: 20px;
+    left: 0;
+    color: #fff;
+    display: inline-block;
+    padding-right: 5px;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right {
+    width: 20%;
+}
+
+.footer-distributed .footer-company-about {
+    line-height: 20px;
+    color: #F8F8F8;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer-distributed .footer-company-about span {
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons {
+    margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #33383b;
+    border-radius: 2px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
