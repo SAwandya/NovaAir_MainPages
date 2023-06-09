@@ -11,7 +11,7 @@
         echo "Error deleteing record ". $conn->error;
     }
 
-    header("Location: ../../Staff_dashboard.php");
+    header("Location: ./deleteAdminMessage.php");
 ?>
 
 <?php $conn->close() ?>

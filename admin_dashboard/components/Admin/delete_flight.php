@@ -9,7 +9,8 @@
     $result3 = $conn->multi_query($sql3);
 
     if( $result3 === TRUE){
-        echo "Record delete successfully";
+        
+        header("Location: ./flightDeleteMessage.php");
     }else{
         echo "Error deleteing record ". $conn->error;
     }

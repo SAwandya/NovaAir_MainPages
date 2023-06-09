@@ -84,7 +84,7 @@
             $result = $conn->multi_query($sql);
 
             if($result === TRUE){
-                echo "Success";
+                header("Location: ./createAdminMessage.php");
             } else {
                 echo "Error: " . $conn->error;
             }

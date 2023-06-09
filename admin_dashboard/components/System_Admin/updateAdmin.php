@@ -71,7 +71,7 @@
             $result = $conn->multi_query($sql);
 
             if($result === TRUE){
-                echo "Success";
+                header("Location: ./updateAdminMessage.php");
             } else {
                 echo "Error: " . $conn->error;
             }

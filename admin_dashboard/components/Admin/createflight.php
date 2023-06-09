@@ -17,7 +17,8 @@
                 VALUES ('$flightId', '$ddate', '$adate', '$dtime', '$atime', '$price', '$staff', '$route');";
 
         if($conn->query($qur)){
-            echo "success";
+            
+            header("Location: ./flightAddMessage.php");
         }else{
             echo "fail";
         }
