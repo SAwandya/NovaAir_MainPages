@@ -290,6 +290,32 @@ tbody tr td{
     font-weight: 550;
     box-shadow: 2px 2px 4px #111827 ;
 }
+.flight-delete:hover{
+    cursor: pointer;
+    background-color: rgb(198, 41, 41);
+}
+.flight-delete:active{
+    box-shadow: none;
+}
+
+.flight-update{
+    background-color: rgb(75, 172, 225);
+    height: 30px;
+    width: 60px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 550;
+    box-shadow: 2px 2px 4px #111827 ;
+}
+
+.flight-update:hover{
+    background-color: rgb(75, 147, 225);
+    cursor: pointer;
+}
+.flight-update:active{
+    box-shadow: none;
+}
+
 
 .role p button:hover{
     background-color: red;
@@ -312,4 +338,8 @@ tbody tr td{
 .people-de h3{
 
     margin-left: 50px;
+}
+
+.hidden {
+    display: none;
 }

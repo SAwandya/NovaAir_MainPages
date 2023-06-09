@@ -84,7 +84,7 @@
                     <input name="email" type="email" placeholder="Email" />
                     <input name="password" type="password" placeholder="Password" />
 
-                    <a href="adminlogin.html">Admin Login</a>
+                    <a href="adminlogin.php">Admin Login</a>
                     <button name="submit" type="submit" class="sign-in_btn">
                         <span>Sign In</span>
                     </button>
