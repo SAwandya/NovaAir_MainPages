@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Montserrat", sans-serif;
+}
+
+
+.main-container {
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 75px;
+}
+
+.main-container h1 {
+    text-align: center;
+}
+
+.title-description {
+    text-align: center;
+    width: 900px;
+    margin: auto;
+    padding-top: 30px;
+}
+
+
+/* Navigation */
+
+nav {
+    background-color: #fff;
+    height: 80px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.topnav {
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.topnav a {
+    color: #000;
+    text-align: center;
+    padding: 14px 18px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    color: #7048e8;
+}
+
+.top-logo {
+    position: absolute;
+    top: -13px;
+    left: 168px;
+}
+
+/* Choose Flights */
+
+.container {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    /* min-height: 100vh; */
+    align-items: center;
+    flex-direction: column;
+    /* justify-content: center; */
+    margin-top: 30px;
+}
+
+.main-table-container {
+    width: 706px;
+    height: 147px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    border-color: #000;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    justify-content: flex-start;
+}
+
+.eco-container {
+    top: 20px;
+    flex: 0 0 auto;
+    left: 311px;
+    width: 174px;
+    height: 100px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    border-color: #000000;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+.class-text {
+    top: 6px;
+    right: 25px;
+    position: absolute;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.from-text {
+    top: 34px;
+    left: 67px;
+    position: absolute;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.class-price {
+    top: 55px;
+    left: 47px;
+    position: absolute;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.business-container {
+    top: 20px;
+    flex: 0 0 auto;
+    right: 20px;
+    width: 174px;
+    height: 100px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    border-color: #000000;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.main-flight-details {
+    flex: 0 0 auto;
+    width: 241px;
+    height: auto;
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.flight-id {
+    top: -70px;
+    right: -9px;
+    position: absolute;
+    font-style: normal;
+    font-weight: 400;
+}
+
+
+.container-flights-details {
+    top: -52px;
+    flex: 0 0 auto;
+    right: -16px;
+    width: 241px;
+    height: 104px;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    border-color: #000000;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+
+.destination1 {
+    top: -24px;
+    left: 44px;
+    position: absolute;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.destination2 {
+    top: -24px;
+    left: 166px;
+    position: absolute;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.destination1-time {
+    top: -1px;
+    left: 55px;
+    position: absolute;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.destination2-time {
+    top: -1px;
+    left: 168px;
+    position: absolute;
+    font-style: normal;
+    font-weight: 700;
+}
+
+/* footer */
+
+.social-icon {
+    margin: 20px 10px;
+}
+
+
+.footer-distributed {
+    background: #7048e8;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 55px 50px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left {
+    width: 40%;
+}
+
+.footer-distributed .footer-left h3 {
+    color: #fff;
+    font-size: 24px;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links {
+    color: #ffffff;
+    margin: 15px 0 12px;
+    padding: 0;
+}
+
+.footer-distributed .footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    font-weight: 400;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center {
+    width: 35%;
+}
+
+.footer-distributed .footer-center i {
+    background-color: #33383b;
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+
+.footer-distributed .footer-center p {
+    display: inline-block;
+    color: #ffffff;
+    font-weight: 400;
+    vertical-align: middle;
+    margin: 10px;
+}
+
+.footer-distributed .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.footer-distributed .footer-center p a {
+    color: #F8F8F8;
+    text-decoration: none;
+    ;
+}
+
+.footer-distributed .footer-links a:before {
+    content: "|";
+    font-weight: 300;
+    font-size: 20px;
+    left: 0;
+    color: #fff;
+    display: inline-block;
+    padding-right: 5px;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right {
+    width: 20%;
+}
+
+.footer-distributed .footer-company-about {
+    line-height: 20px;
+    color: #F8F8F8;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer-distributed .footer-company-about span {
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons {
+    margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #33383b;
+    border-radius: 2px;
+
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+
+    margin-right: 3px;
+    margin-bottom: 5px;
+}

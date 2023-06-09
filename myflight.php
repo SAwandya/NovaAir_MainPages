@@ -121,9 +121,9 @@ if (!isset($_SESSION['ID'])) {
                 </ul> -->
                 
                 <div class="both-buttons">
-                    <button class="flight-buttons">Edit Booking</button>
+                    <a href="./paymentNew.php"><button class="flight-buttons" type="submit" name="confirm">Confirm</button></a>
                     <a href="./index.php"><button class="flight-buttons">Cancel Booking</button></a>
-                    <a href="./paymentNew.php"><button type="submit" name="confirm">Confirm</button></a>
+                    
                 </div>
                 </form>
                 

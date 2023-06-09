@@ -53,7 +53,7 @@ include "./db/db.php";
 
       <!-------------------- search form start here ---------------------------->
 
-      <form action="./flightList.php" method="post">
+      <form action="./flights.php" method="post">
 
       <div class="input-container">
         <div class="search-flights-box tab-content" id="content1">
