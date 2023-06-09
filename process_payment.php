@@ -34,12 +34,13 @@ include "./db/db.php" ?>
         $cvv = $_POST['cvv'];
         $expireDate = $_POST['expiry_date'];
 
-        $qur = "INSERT INTO payment VALUES (10, '$currentDate', '$method', '$totalPrice', '$cardNo', '$cvv', '$expireDate');";
+        $qur = "INSERT INTO payment (PaidDate, Method, TotalAmount, CardNo, Cvv, ExpireDate) 
+                VALUES ('$currentDate', '$method', '$totalPrice', '$cardNo', '$cvv', '$expireDate');";
 
-        $result = $conn->query($qur);
+        if($conn->query($qur) === TRUE){
 
-        if($result === TRUE){
-
+            $lastID = $conn->insert_id;
+            
             $passengers = $_SESSION['passengers'];
             $flightno =  $_SESSION['flightno'];
             $price = $_SESSION['price'];
@@ -48,7 +49,8 @@ include "./db/db.php" ?>
 
             $totalPrice = $_SESSION['totalPrice'];
 
-            $qur2 = "INSERT INTO ticket VALUES (9 , 20, '$totalPrice', 0, '$flightno', '$userID', 10, '$classNo');";
+            $qur2 = "INSERT INTO ticket (Price, FlightNo, UserID, PaymentID, ClassNo) 
+                     VALUES ('$totalPrice', '$flightno', '$userID', $lastID, '$classNo');";
 
             $result2 = $conn->query($qur2);
 
