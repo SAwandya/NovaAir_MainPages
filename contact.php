@@ -1,3 +1,81 @@
+<?php include "./db/db.php" ?>
+
+<?php 
+
+$commentErr = $mnameErr = $fnameErr = $phoneErr = $Error = $emailErr = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+    if(isset($_POST['submit'])){
+    
+        if (empty($_POST["comment"])) {
+            $commentErr = "Message is required";
+        }
+            
+        if (empty($_POST["email"])) {
+            $emailErr = "Email is required";
+        } 
+    
+        if (empty($_POST["firstname"])) {
+            $fnameErr = "First name is required";
+            } else {
+                $name = test_input($_POST["firstname"]);
+    
+            if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+            $fnameErr = "Only letters and white space allowed";
+        }
+        }
+    
+        if (empty($_POST["middlename"])) {
+            $mnameErr = "Last name is required";
+        } else {
+            $name = test_input($_POST["middlename"]);
+            
+            if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+            $mnameErr = "Only letters and white space allowed";
+            }
+        }
+    
+        if (empty($_POST["phone"])) {
+            $phoneErr = "phone number is required";
+        }
+    
+        if($commentErr == "" && $mnameErr == "" && $phoneErr == "" && $emailErr == "" && $fnameErr == ""){
+    
+            $comment = $_POST['comment'];
+            $firstname = $_POST['firstname'];
+            $middlename = $_POST['middlename'];
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $currentDate = date('Y-m-d');
+    
+            $qur = "INSERT INTO feedback (Comment, GivenDate, StaffID, FirstName, MiddleName, Email, PhoneNo)
+                    VALUES ('$comment', '$currentDate', 2, '$firstname', '$middlename', '$email', '$phone');";
+    
+            $result = $conn->query($qur);
+    
+            if($result === TRUE){
+                echo "You are successfully registered..";
+
+                header("Location: ./index.php");
+            }else{
+                echo "Registration failed.." . $conn->error;
+            }
+        }
+    }
+
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,36 +127,36 @@
 
         <h2>Contact Us!</h2>
 
-        <form action="countactus">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+
             <div class="lable">
                 <div class="lbl1">Your Name </div>
+                <input name="firstname" type="text" placeholder="First Name">
+                
 
-                <input type="text" placeholder="First Name">
-                <input type="text" placeholder="Second Name">
-                <br><br>
+                <input name="middlename" type="text" placeholder="Second Name">
+                <br><br><span>* <?php echo $mnameErr;?></span>
 
                 <div class="lbl1">E-mail & Phone</div>
-                <input type="email" placeholder="John.wick@gmail.com">
-                <input type="phone" placeholder="(07x xxx xxxx)"><br><br>
+                <input name="email" type="email" placeholder="John.wick@gmail.com">
+                <span>* <?php echo $emailErr;?></span>
 
-                <div class="lbl1">Booking Reference :</div>
-                <input type="text" placeholder="(optional)"><br><br>
+                <input name="phone" type="phone" placeholder="(07x xxx xxxx)">
+                <span>* <?php echo $phoneErr;?></span><br><br>
 
-                <div class="lbl1">Your Message </div>
+                <div  class="lbl1">Your Message </div>
+                
             </div>
-
+            
             <div class="msg">
-                <textarea rows="4" cols="96"></textarea>
-
+                <textarea name="comment" rows="4" cols="96"></textarea>
+                <span>* <?php echo $commentErr;?></span>
                 <!-- <input type="text" style="width: 84%;"> -->
             </div>
 
-            <div class="btn1">
-                <label for="myfile">Attach a file or document:</label>
-                <input type="file" id="myfile" name="myfile"><br>
+            <span><?php echo $Error;?></span>
 
-            </div>
-            <button class="submit-buttons">Submit</button>
+            <button name="submit" class="submit-buttons">Submit</button>
         </form>
     </div>
 
