@@ -65,11 +65,18 @@
                     </p>
                 </td>
             </tr>
-
+        
             <?php
                   }
             } 
             ?>
+            <tr>
+                <td class="people-de"><h3>Add a new flight</h3></td>
+                <td class="plus-icon">
+                        
+                    <a href="./components/Admin/addflight.php"><i class="fa-solid fa-circle-plus fa-2xl"></i></a>
+                </td> 
+            </tr>
         </tbody>
     </table>
     </div>
@@ -91,24 +98,20 @@
 
         <?php 
 
-    $sql = "SELECT u.FirstName, u.MiddleName, u.SurName, e.Email, f.Comment, f.GivenDate
-            FROM users u, user_email e, feedback f
-            WHERE u.UserID = e.UserID AND f.UserID = u.UserID;";
-
+    $sql = "SELECT * FROM feedback;";
+    
     $result = $conn->query($sql);
 
     if($result->num_rows > 0) {
 
         while($row = $result->fetch_assoc()){
-
-
    
 ?>
 
             <tr>
                 <td class="people">
                     <div class="people-de">
-                        <h5><?php echo $row['FirstName']." ".$row['MiddleName']." ".$row['SurName'] ?></h5>
+                        <h5><?php echo $row['FirstName']." ".$row['MiddleName']?></h5>
                         
                     </div>
                 </td>

@@ -122,7 +122,7 @@ if (!isset($_SESSION['ID'])) {
                 
                 <div class="both-buttons">
                     <button class="flight-buttons">Edit Booking</button>
-                    <button class="flight-buttons">Cancel Booking</button>
+                    <a href="./index.php"><button class="flight-buttons">Cancel Booking</button></a>
                     <a href="./payment.php"><button type="submit" name="confirm">Confirm</button></a>
                 </div>
                 </form>

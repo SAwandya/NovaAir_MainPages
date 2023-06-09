@@ -1,30 +1,3 @@
-<?php 
-
-session_start();
-
-include "./db/db.php";
-
-$classNo = $multiplier = "";
-
-$class = $_SESSION['class'];
-$price = $_SESSION['price'];
-
-$qur1 = "SELECT * FROM class WHERE ClassType = '$class';";
-
-$result = $conn -> query($qur1);
-
-while($row = $result->fetch_assoc()){
-    $classNo = $row['ClassNo'];
-    $multiplier = $row['Multiplier'];
-}
-
-$totalPrice = $price * $multiplier;
-
-$_SESSION['totalPrice'] = $totalPrice;
-$_SESSION['classNo'] = $classNo;
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,9 +32,17 @@ $_SESSION['classNo'] = $classNo;
             style="margin-top: 20px; margin-left: 10px"
           />
         </div>
-        <!------------------ Navigation bar --------------------->
-
-      <?php include "./components/navbar.php" ?>
+        <div class="topnav">
+          <a href="index.html">Home</a>
+          <a href="book.html">Book</a>
+          <a href="manage.html">Manage</a>
+          <a href="wherewefly.html">Where we fly</a>
+          <a href="destinations.html">Best Destinations</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="newlogin.html" style="margin-left: 75px; margin-right: 150px"
+            >Login | Sign up</a
+          >
+        </div>
       </nav>
     <div class="main-container">
         <h1>Payments</h1>
@@ -70,31 +51,28 @@ $_SESSION['classNo'] = $classNo;
                 <h4>Tokoyo, Japan</h4>
                 <form action="#">
                     <h3>To pay</h3>
-                    <h1>LKR <?php echo $totalPrice ?></h1>
+                    <h1>LKR 23780</h1>
                 </form>
             </div>
             <div class="overlay-container">
                 <div class="overlay">
                     <div class="overlay-panel overlay-right">
 
-                        <form action="payconfirm.php" method="post">
-                            <label for="card_number">Card Number:</label>
-                            <input type="number" id="card_number" name="card_number" required>
+                        <form action="process_payment.php" method="post">
+                          <label for="ccn"> Credit Number</label>
+                          <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
 
                             <label for="method">Enter card type :</label>
                             <select name="method" id="method">
                                 <option value="Visa">Visa Card</option>
                                 <option value="Master">Master Card</option>
                             </select>
-
-                            <label for="expiry_date">Expiry Date:</label>
-                            <input type="Date" id="expiry_date" name="expiry_date" required>
-
+                        <label for="Expiration"> Expiration </label>
+                        <input type="number" placeholder="Month" />
+                        <input type="number" placeholder="Year" />
                             <label for="cvv">CVV:</label>
-                            <input type="number" id="cvv" name="cvv" required><br>
-
-                            <input name="submit" type="submit" value="Submit Payment">
-
+                            <input type="text" id="cvv" name="cvv" required><br>
+                            <input style="cursor: pointer;" type="submit" value="Submit Payment">
                           </form>
                         <!-- <h3>Pay with credit card</h3>
 
@@ -115,6 +93,56 @@ $_SESSION['classNo'] = $classNo;
             </div>
         </div>
     </div>
+    <footer class="footer-distributed">
+
+      <div class="footer-left">
+  
+        <h3>Nova Airways</h3>
+  
+        <p class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="book.html">Book</a>
+          <a href="manage.html">Manage</a>
+          <a href="wherewefly.html">Where we fly</a>
+          <a href="destinations.html">Best Destinations</a>
+          <a href="contact.html">Contact Us</a>
+        </p>
+  
+        <p class="footer-company-name">Nova Airways © 2023</p>
+      </div>
+  
+      <div class="footer-center">
+  
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p>Katunayake, Sri Lanka</p>
+        </div>
+  
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>+94 11 223 3118</p>
+        </div>
+        
+  
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:novaairways@company.com">novaairways@company.com</a></p>
+        </div>
+      </div>
+  
+      <div class="footer-right">
+        <p class="footer-company-about">
+          <span>About the company</span>
+          Soaring to new heights, we offer exceptional service, unmatched comfort, and seamless travel experiences. Fly with us today!
+        </p>
+        <div>
+          <i class="social-icon fab fa-facebook-f"></i>
+          <i class="social-icon fab fa-twitter"></i>
+          <i class="social-icon fab fa-instagram"></i>
+          <i class="social-icon fas fa-envelope"></i>
+        </div>
+      </div>
+    </footer>
 </body>
 
 </html>

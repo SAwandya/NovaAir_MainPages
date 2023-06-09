@@ -29,13 +29,14 @@
 <!-------------------- Manage admins ------------------------------>
 
 <div class="board">
-    <h3>Manage Admins</h3>
+    <h3>Manage staff</h3>
     <hr>
     <table width="100%">
         <thead>
             <tr>
                 <td>Name</td>
                 <td>ID</td>
+                <td>Staff Type</td>
                 <td>Contact No</td>
                 <td>Update</td>
             </tr>
@@ -52,7 +53,7 @@
                     if($result->num_rows > 0){
                         
                         while($row = $result->fetch_assoc()){
-                            if($row['StaffType'] == 'Admin'){
+                            if($row['StaffType'] !== 'System Admin'){
 
                 ?>
             <tr>
@@ -66,6 +67,8 @@
                 </td>
 
                 <td class="active"><p><?php echo $row['StaffID'] ?></p></td>
+
+                <td class="active"><p><?php echo $row['StaffType'] ?></p></td>
 
                 <td class="people-de" ><?php echo $row['PhoneNo'] ?></td>
                 
@@ -81,8 +84,7 @@
                     } ?>
             
             <tr>
-                <td class="people-de"><h3>Add a new admin</h3></td>
-                <td></td>
+                <td class="people-de"><h3>Add a new staff member</h3></td>
                 <td class="plus-icon">
                         
                     <a href="./components/System_Admin/addAdmin.php"><i class="fa-solid fa-circle-plus fa-2xl"></i></a>
