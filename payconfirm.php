@@ -4,27 +4,9 @@ include "./db/db.php" ?>
 
 <?php 
 
-    $carNoErr = $methodErr = $cvvErr = $dateErr = "";
+    
 
     if(isset($_POST['submit'])){
-
-        if(empty($_POST['card_number'])){
-            $carNoErr = "card number is required"; 
-        }
-
-        if(empty($_POST['method'])){
-            $methodErr = "Card type is required"; 
-        }
-
-        if(empty($_POST['expiry_date'])){
-            $dateErr = "expiry date is required"; 
-        }
-
-        if(empty($_POST['cvv'])){
-            $cvvErr = "CVV date is required"; 
-        }
-
-    if($carNoErr == "" && $methodErr == "" &&  $cvvErr == "" &&  $dateErr == ""){
 
         $currentDate = date('Y-m-d');
 
@@ -54,21 +36,10 @@ include "./db/db.php" ?>
 
             $result2 = $conn->query($qur2);
 
-            if($result2 === TRUE){
-                echo "Success";
-            } else {
+            if($result2 == TRUE){
                 echo "Error: " . $conn->error;
-            }
-                echo "Success";
-
-        } else {
-            echo "Error: " . $conn->error;
-        }
-
-
-    }
-
-    }
+        
+    
 
 ?>
 
@@ -102,17 +73,17 @@ include "./db/db.php" ?>
         <h2>Payment Completed</h2>
         <div class="payment-amount">
             <p>Total Payment</p>
-            <h1>LKR 237801</h1>
+            <h1>LKR <?php echo $totalPrice ?></h1>
         </div>
 
         <div>
             <p>Your Booking Reference Number</p>
-            <h5>000001</h5>
+            <h5><?php echo $lastID ?></h5>
         </div>
         
         <a href="./index.php">
             <button>
-                Download the invoice
+                Payment successed
             </button>
         </a>
 
@@ -121,3 +92,17 @@ include "./db/db.php" ?>
 </body>
 
 </html>
+
+<?php 
+
+} 
+
+} else {
+    echo "Error: " . $conn->error;
+}
+
+
+}
+
+
+?>

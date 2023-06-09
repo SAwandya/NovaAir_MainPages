@@ -1,3 +1,31 @@
+<?php 
+
+session_start();
+
+include "./db/db.php";
+
+$classNo = $multiplier = "";
+
+$class = $_SESSION['class'];
+$price = $_SESSION['price'];
+
+$qur1 = "SELECT * FROM class WHERE ClassType = '$class';";
+
+$result = $conn -> query($qur1);
+
+while($row = $result->fetch_assoc()){
+    $classNo = $row['ClassNo'];
+    $multiplier = $row['Multiplier'];
+}
+
+$totalPrice = $price * $multiplier;
+
+$_SESSION['totalPrice'] = $totalPrice;
+$_SESSION['classNo'] = $classNo;
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,16 +79,16 @@
                 <h4>Tokoyo, Japan</h4>
                 <form action="#">
                     <h3>To pay</h3>
-                    <h1>LKR 23780</h1>
+                    <h1>LKR <?php echo $totalPrice ?></h1>
                 </form>
             </div>
             <div class="overlay-container">
                 <div class="overlay">
                     <div class="overlay-panel overlay-right">
 
-                        <form action="process_payment.php" method="post">
-                          <label for="ccn"> Credit Number</label>
-                          <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
+                        <form action="payconfirm.php" method="post">
+                          <label for="ccn"> Card Number</label>
+                          <input id="ccn" name="card_number" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
 
                             <label for="method">Enter card type :</label>
                             <select name="method" id="method">
@@ -68,11 +96,11 @@
                                 <option value="Master">Master Card</option>
                             </select>
                         <label for="Expiration"> Expiration </label>
-                        <input type="number" placeholder="Month" />
-                        <input type="number" placeholder="Year" />
+                        <input type="Date" name="expiry_date"  placeholder="Month" />
+
                             <label for="cvv">CVV:</label>
                             <input type="text" id="cvv" name="cvv" required><br>
-                            <input style="cursor: pointer;" type="submit" value="Submit Payment">
+                            <input style="cursor: pointer;" type="submit" name="submit" value="Submit Payment">
                           </form>
                         <!-- <h3>Pay with credit card</h3>
 
