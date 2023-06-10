@@ -38,6 +38,8 @@
     </div>
 
     <?php 
+            session_start();
+
             include "./db/db.php";
             if(isset($_POST["submit"])){
 
@@ -62,15 +64,11 @@
                         $_SESSION['flightno'] = $row["FlightNo"];
                         $_SESSION['class'] = $class;
                         $_SESSION['passengers'] = $passengers;
-                        $_SESSION['price'] = $row["Price"];
-                    
+                        $_SESSION['price'] = $row["Price"];   
 
             ?>
 
     <div>
-    <form action="./myflight.php" method="post">
-
-    <button type="submit" name="submit" >
         <div class="container">
             <div class="main-table-container">
                 <div class="eco-container">
@@ -97,7 +95,8 @@
             </div>
     
         </div>
-        </button>
+        <form action="./myflight.php" method="post">
+          <button type="submit" name="submit" >choose</button>
         </form>
     </div>
     

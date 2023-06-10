@@ -34,10 +34,24 @@ include "./db/db.php";
     <div class="top-logo">
       <img src="images/logo_with_txt.png" height="66px" style="margin-top: 20px; margin-left: 10px" />
     </div>
-<!------------------ Navigation bar --------------------->
+    <div class="topnav">
+      <a href="./index.php">Home</a>
+      <a href="./book.php">Book</a>
+      <a href="./manage.php">Manage</a>
+      <a href="./wherewefly.php">Where we fly</a>
+      <a href="./destinations.php">Best Destinations</a>
+      <a href="./contact.php">Contact Us</a>
+      <a href="./newlogin.php" style="margin-left: 75px; margin-right: 150px">Login | Sign up</a>
+      <form action="./logoutMain.php" method="post">
+      <?php 
 
-<?php include "./components/navbar.php" ?>
-
+        if(isset($_SESSION['ID'])){
+          echo "<button>logout</button>";
+        }
+      
+      ?>
+      </form>
+    </div>
     
   </nav>
   <div class="main-container">
@@ -166,25 +180,29 @@ include "./db/db.php";
         </div>
         </form>
         <!--------------------- search flight over here ---------------------->
+        
+          <div class="manage-booking-box tab-content" id="content2">
+            <form action="./myticket.php" method="post">
+            <div class="second-line">
+              <div class="input-boxes reference-input">
+                <label>Booking Reference Number</label>
+                <input type="number" name="bookingnumber" />
+              </div>
 
-        <div class="manage-booking-box tab-content" id="content2">
-          <div class="second-line">
-            <div class="input-boxes reference-input">
-              <label>Booking Reference Number</label>
-              <input type="number" />
+              <!-- <div class="input-boxes lastname-input">
+                <label>Last Name</label>
+                <input type="text" name="bookingname" />
+              </div> -->
             </div>
 
-            <div class="input-boxes lastname-input">
-              <label>Last Name</label>
-              <input type="number" />
-            </div>
+            <button type="submit" name="bookingsubmit" class="flight-buttons flight-buttons-2">
+              Search Booking
+            </button>
+            </form>
           </div>
-
-          <button class="flight-buttons flight-buttons-2">
-            Search Booking
-          </button>
-        </div>
-      </section>
+          
+        </section>
+      
 
       <section class="benefits-section">
         <h2>Your Benefits</h2>
