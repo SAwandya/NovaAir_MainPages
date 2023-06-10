@@ -33,9 +33,10 @@ body{
 
 
 #menu .logo img{
-    width: 40px;
+    width: auto;
     margin-right: 15px;
-
+    height: 60px;
+    margin-left: -100px;
 }
 
 #menu .items{
@@ -99,7 +100,7 @@ body{
     width: calc(100% - 300px);
 }
 
-#interface .navigation .search{
+#interface .navigation .logout{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -108,15 +109,21 @@ body{
     border-radius: 4px;
 }
 
-#interface .navigation .search i{
-    margin-right: 14px;
+#interface .navigation .logout button{
+
+    height: 35px;
+    width: 68px;
+    background-color: #d14c4c;
+    border-radius: 5px;
+    border: none;
+    font-weight: 200;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px 1px;
 }
 
-#interface .navigation .search input{
+#interface .navigation .logout button:active{
 
-    border: none;
-    outline: none;
-    font-size: 14px;
+    box-shadow: none;
 }
 
 #interface .navigation .profile{

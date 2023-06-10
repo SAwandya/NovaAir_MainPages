@@ -57,6 +57,28 @@ nav {
   font-size: 17px;
 }
 
+.topnav button{
+  background-color: #7048e8;
+  position:absolute;
+  right: 20px;
+  top: 22px;
+  height: 38px;
+  width: 70px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 400;
+  box-shadow: 1px 1px 1px 1px;
+  cursor: pointer;
+}
+
+.topnav button:hover{
+  background-color: #5a2fdc;
+}
+
+.topnav button:active{
+  box-shadow: none;
+}
+
 .topnav a:hover {
   color: #7048e8;
 }

@@ -34,7 +34,7 @@
 <body>
     <section id="menu">
         <div class="logo">
-            <img src="" alt="">
+            <img src="../images/logo_with_txt.png" alt="">
             <h2>NovaAir Airways</h2>
            
         </div>
@@ -86,9 +86,10 @@
     <section id="interface">
             <div class="navigation">
                 <div class="n1">
-                    <div class="search">
-                        <i class="fa-solid fa-magnifying-glass fa-sm"></i>
-                        <input type="text" placeholder="Search">
+                    <div class="logout">
+                        <form action="./logout.php" method="post">
+                            <button type="submit" name="submit">Logout</button>
+                        </form>
                     </div>
                 </div>
 
