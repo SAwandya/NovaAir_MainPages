@@ -76,7 +76,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $password = $_POST["password"];
             $email = $_POST["email"];
             $phone = $_POST["phone"];
+
+            $qur4 = "SELECT COUNT(*) AS count FROM user_email WHERE Email = '$email';";
+
+            $result3 = $conn->query($qur4);
+
+            if($result3 === false){
+                $message = "Error executing the query: " . $conn->error;
+            }else{
+
+              $row = $result3->fetch_assoc();
+              $emailCount = $row['count'];
             
+            if($emailCount === '0'){
+
             $qur1 = "INSERT INTO users (FirstName, MiddleName, SurName, UserAddress, DateOfBirth, UserPassword) 
                      VALUES ('$firstname', '$middlename', '$lastname', '$address', '$dateofbirth', '$password');";
 
@@ -91,20 +104,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $success = "You are successfully registered..";
                 header("Location: ./newlogin.php");
               }else{
-                $message = "Registration failed.." . $conn->error;
+                $message = "Registration failed..";
               }
 
                 
             }else{
-                $message = "Registration failed.." . $conn->error;
+                $message = "Registration failed..";
             }
 
             
 
-        }
+            }else{
+              $message = "Email already exists. Please choose a different email.";
+            }
+          }
         
 }
-
+}
 
 ?>
 

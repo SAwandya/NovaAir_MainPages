@@ -58,7 +58,7 @@
 
             if($_SESSION['staffType'] === 'Admin'){
                 echo '<script>';
-                echo 'hideListItem("admin");'; // Call the function
+                echo 'hideListItem("systemAdmin");'; // Call the function
                 echo '</script>';
             }
 

@@ -6,13 +6,4 @@
       <a href="./destinations.php">Best Destinations</a>
       <a href="./contact.php">Contact Us</a>
       <a href="./newlogin.php" style="margin-left: 75px; margin-right: 150px">Login | Sign up</a>
-      <form action="./logoutMain.php" method="post">
-      <?php 
-
-        if(isset($_SESSION['ID'])){
-          echo "<button>logout</button>";
-        }
-      
-      ?>
-      </form>
     </div>

@@ -37,7 +37,7 @@ include "./db/db.php" ?>
             $result2 = $conn->query($qur2);
 
             if($result2 == TRUE){
-                echo "Error: " . $conn->error;
+                
         
     
 
