@@ -20,7 +20,7 @@
             
             header("Location: ./flightAddMessage.php");
         }else{
-            echo "fail";
+            echo "Flight ID is already exist..";
         }
     
     }

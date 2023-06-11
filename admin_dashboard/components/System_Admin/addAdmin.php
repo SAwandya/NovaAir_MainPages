@@ -20,30 +20,30 @@
 
                         <div class="form-element">
                             <label for="id">ID</label>
-                            <input type="number" name="id" id="id" placeholder="Enter ID">
+                            <input type="number" name="id" id="id" placeholder="Enter ID" required>
                         </div>
                         <div class="form-element">
                             <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Enter name">
+                            <input type="text" id="name" name="name" placeholder="Enter name" required>
                         </div>
                         <div class="form-element">
                             <label for="email">Email</label>
-                            <input type="text" id="email" name="email" placeholder="Enter email">
+                            <input type="text" id="email" name="email" placeholder="Enter email" required>
                         </div>
                         <div class="form-element">
                             <label for="password">Password</label>
-                            <input type="password" name="password" id="password" placeholder="Enter password">
+                            <input type="password" name="password" id="password" placeholder="Enter password" required>
                         </div>
 
                         <div class="form-element">
                             <label for="contact">Contact no</label>
-                            <input type="number" name="contact" id="contact" placeholder="Enter contact no">
+                            <input type="number" name="contact" id="contact" placeholder="Enter contact no" required>
                         </div>
 
                         <div class="form-element">
                             <label for="staff">Choose Staff Type:</label>
 
-                            <select name="staff" id="staff">
+                            <select name="staff" id="staff" required>
                                 <option value="Admin">Admin</option>
                                 <option value="Maintenance Staff">Maintenance Staff</option>
                                 <option value="System Admin">System Admin</option>

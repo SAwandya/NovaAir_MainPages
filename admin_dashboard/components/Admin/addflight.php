@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="addflight.css">
-        <title>Add Admin</title>
+        <title>Add New Flight</title>
     </head>
     <body>
         <section class="add-admin-container">        
@@ -16,7 +16,7 @@
                 
                 <div class="form">
 
-                    <h2>Add admin</h2>
+                    <h2>Add New Flight</h2>
                     <form action="<?php echo htmlspecialchars('./createflight.php'); ?>" method="post">
 
                         <div class="form-element">
